@@ -1,16 +1,9 @@
-#define CMDLENGTH 45
-#define DELIMITER "  "
+#define CMDLENGTH 500
+#define DELIMITER "<"
 #define CLICKABLE_BLOCKS
 
 const Block blocks[] = {
-	BLOCK("sb-mail",    1800, 17),
-	BLOCK("sb-music",   0,    18),
-	BLOCK("sb-disk",    1800, 19),
-	BLOCK("sb-memory",  10,   20),
-	BLOCK("sb-loadavg", 5,    21),
-	BLOCK("sb-mic",     0,    26),
-	BLOCK("sb-record",  0,    27),
-	BLOCK("sb-volume",  0,    22),
-	BLOCK("sb-battery", 5,    23),
-	BLOCK("sb-date",    1,    24)
+	BLOCK("echo 🎵 $(now-playing 2> /dev/null)",                        5,     1),
+	BLOCK("echo 📦 $(checkupdates | wc -l) updates",                    60,    2),
+	BLOCK("echo 🕑 $(date +\"%a, %B %d %l:%M%p\" | sed 's/  / /g')",    5,     3),
 };
